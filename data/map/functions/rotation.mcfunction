@@ -6,7 +6,7 @@ execute as @e[tag=shaft_target_rotation_marker] store result score shaft_rotatio
 scoreboard players operation rotation_delta mapdata = player_rotation mapdata
 scoreboard players operation rotation_delta mapdata -= shaft_rotation mapdata
 
-execute store result storage map:data rotation_delta_scaled int 1 run scoreboard players get rotation_delta mapdata
+execute store result storage map:data rotation_delta_scaled int 0.25 run scoreboard players get rotation_delta mapdata
 execute store result score rotation_delta_scaled mapdata run data get storage map:data rotation_delta_scaled
 
 scoreboard players operation shaft_target_rotation mapdata = shaft_rotation mapdata
