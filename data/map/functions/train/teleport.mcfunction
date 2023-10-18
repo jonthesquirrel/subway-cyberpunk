@@ -1,1 +1,1 @@
-tp @e[tag=train] @s
+execute as @p run tp @e[tag=train] @s
