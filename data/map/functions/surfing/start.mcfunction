@@ -1,4 +1,4 @@
-summon minecraft:armor_stand 0 -62 0 {Tags:["vehicle"]}
+summon minecraft:armor_stand 0 -62 0 {Tags:["vehicle"],Invisible:true}
 effect give @e[tag=vehicle] minecraft:levitation infinite 12 true
 
 execute positioned 0 -62 0 run tag @p add playing
