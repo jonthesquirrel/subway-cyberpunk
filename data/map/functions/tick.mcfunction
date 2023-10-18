@@ -1,2 +1,2 @@
-function map:surfing/rotation
-function map:surfing/check_game_state
+function map:rotation
+function map:check_game_state
