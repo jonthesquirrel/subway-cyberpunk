@@ -1,7 +1,8 @@
-kill @a[tag=playing]
+kill @e[tag=game_object]
 
 # debug
-gamemode creative @a[tag=playing]
+gamemode creative @p[tag=playing]
 
 schedule clear map:surfing/boost
-tag @a[tag=playing] remove playing
+tag @p[tag=playing] remove game_object
+tag @p[tag=playing] remove playing
