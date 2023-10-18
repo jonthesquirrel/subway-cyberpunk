@@ -1,2 +1,2 @@
-summon minecraft:block_display 1.0 100.0 0.0 {Tags:["train"],block_state:{Name:"minecraft:yellow_concrete"}}
-setblock 1 100 0 barrier
+summon minecraft:block_display 1.0 100.0 10.0 {Tags:["train"],block_state:{Name:"minecraft:yellow_concrete"}}
+execute as @e[tag=train] run data merge entity @s {teleport_duration:50}
