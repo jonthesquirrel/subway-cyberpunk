@@ -1,19 +1,21 @@
 execute as @p[tag=playing] store result score player_rotation mapdata run data get entity @s Rotation[0]
-# scoreboard players operation rotation_delta mapdata /= rotation_delta_scale_divisor mapdata
 
 execute as @e[tag=shaft_target_rotation_marker] at @p positioned 0 ~ 0 facing entity @p feet run tp @s ~ ~ ~ ~ ~
 execute as @e[tag=shaft_target_rotation_marker] store result score shaft_rotation mapdata run data get entity @s Rotation[0]
 
 scoreboard players operation rotation_delta mapdata = player_rotation mapdata
 scoreboard players operation rotation_delta mapdata -= shaft_rotation mapdata
-# scoreboard players add rotation_delta mapdata 1
+
+execute store result storage map:data rotation_delta_scaled int 1 run scoreboard players get rotation_delta mapdata
+execute store result score rotation_delta_scaled mapdata run data get storage map:data rotation_delta_scaled
 
 scoreboard players operation shaft_target_rotation mapdata = shaft_rotation mapdata
-scoreboard players operation shaft_target_rotation mapdata += rotation_delta mapdata
+scoreboard players operation shaft_target_rotation mapdata += rotation_delta_scaled mapdata
 scoreboard players operation player_target_rotation mapdata = player_rotation mapdata
-scoreboard players operation player_target_rotation mapdata -= rotation_delta mapdata
+scoreboard players operation player_target_rotation mapdata -= rotation_delta_scaled mapdata
 
 execute store result entity @e[tag=shaft_target_rotation_marker,limit=1] Rotation[0] float 1 run scoreboard players get shaft_target_rotation mapdata
+
 execute as @p[tag=playing] at @e[tag=shaft_target_rotation_marker] positioned ^ ^ ^5 run tp @s ~ ~ ~
 
 # execute as @e[tag=player_target_rotation_marker] at @p[tag=playing] run tp @s ~ ~ ~ ~ ~ 
