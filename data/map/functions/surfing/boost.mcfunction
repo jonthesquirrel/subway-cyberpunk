@@ -1,2 +1,2 @@
-effect clear @e[tag=vehicle] minecraft:levitation
-effect give @e[tag=vehicle] minecraft:levitation infinite 40 true
+effect clear @a[tag=playing] minecraft:levitation
+effect give @a[tag=playing] minecraft:levitation infinite 40 true
